@@ -26,16 +26,31 @@ python main.py
 ## Utilisation
 Le menu principal est divisé en 3 options.
 ### 1) Menu joueurs
-- Le programme vous permet de gérer des tournois d'échecs. Lors de la première utilisation, sélectionnez "Créer un tournoi", puis laissez vous guider.
-- Si aucun joueurs n'est présent dans la base de donnée, vous serez invité à en créer.
-- Lors d'un tournoi, vous serez invité à rentrer les résultats après chaque match. A la fin d'un tournoi, un classement sera généré.
-- Pendant le tournoi, vous aurez la possibilité de sauvegarder le tournoi en cours, en charger un nouveau, de voir ou modifier les classements.
+- Le menu joueurs vous permets de créer un joueur avec un nom, prenom, date de naissance, et un identifiant unique.
+- Vous pouvez egalement afficher la liste des joueurs.
+
 ### 2) Menu tournois
-- Cette section vous permet de charger un tournoi depuis la base de donnée.
-- Une fois le tournoi chargé, vous serez invité à le continuer.
+- Le menu tournoi vous permets de démarrer un nouveau tournoi avec : (un nom de tournoi, un lieu du tournoi,un nombre de tour, description)
+- Il faut au minimum 2 joueurs inscrit dans l'application pour pouvoir selectionner les joueurs pour le tournoi à demarrer.
+
+- Une fois le tournoi demarrer des paires vont être generer,les joueurs seront dans un premier temps trié aleoiterement et ne se rencontrerons jamais deux fois durant le tournoi.
+- Pour chaque match vous serez invité à indiqué le joueur gagnant ou si il y a egalité.
+
+- Une fois que les matchs/tours sont terminés ou si les joueurs ont tous eu un adversaire unique.Le tournoi prend fin.
+- Un classement du tournoi sera afficher par ordre decroissant de points ainsi que les resultats des matchs du tournoi.
+
+-Le match etant terminé vous pouvez le consulter par le menu Rapport en selectionnant le bon nom du tournoi.
+
+- Vous pouvez egalement à tout moment revenir au menu principale et/ou quitter l'application puis continuer un tournoi deja en cours.
+- 
 ### 3) Menu Rapports
 - Lorsque vous sélectionnez cette option, vous êtes invité à rentrer le nombre de joueurs à créer.
-- Laissez vous ensuite guider par le programme.
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 - Installez flake8 avec la commande: 
 ```
