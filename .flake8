@@ -1,0 +1,7 @@
+[flake8]
+exclude =
+    .git,
+    __pycache__,
+    venv\,
+    projet_4\Lib\site-packages\,
+    *.pyc
