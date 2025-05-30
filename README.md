@@ -13,7 +13,7 @@ python -m venv env
 Ensuite, activez-le.
 ```
 env\Scripts\activate
-
+```
 Il ne reste plus qu'à installer les packages requis:
 ```
 pip install -r requirements.txt
