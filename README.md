@@ -25,31 +25,29 @@ python main.py
 
 ## Utilisation
 Le menu principal est divisé en 3 options.
+
 ### 1) Menu joueurs
 - Le menu joueurs vous permets de créer un joueur avec un nom, prenom, date de naissance, et un identifiant unique.
 - Vous pouvez egalement afficher la liste des joueurs.
-
-### 2) Menu tournois
-- Le menu tournoi vous permets de démarrer un nouveau tournoi avec : (un nom de tournoi, un lieu du tournoi,un nombre de tour, description)
-- Il faut au minimum 2 joueurs inscrit dans l'application pour pouvoir selectionner les joueurs pour le tournoi à demarrer.
-
-- Une fois le tournoi demarrer des paires vont être generer,les joueurs seront dans un premier temps trié aleoiterement et ne se rencontrerons jamais deux fois durant le tournoi.
-- Pour chaque match vous serez invité à indiqué le joueur gagnant ou si il y a egalité.
-
-- Une fois que les matchs/tours sont terminés ou si les joueurs ont tous eu un adversaire unique.Le tournoi prend fin.
-- Un classement du tournoi sera afficher par ordre decroissant de points ainsi que les resultats des matchs du tournoi.
-
--Le match etant terminé vous pouvez le consulter par le menu Rapport en selectionnant le bon nom du tournoi.
-
-- Vous pouvez egalement à tout moment revenir au menu principale et/ou quitter l'application puis continuer un tournoi deja en cours.
 - 
+### 2) Menu Tournois
+Le menu Tournois vous permet de démarrer un nouveau tournoi avec : un nom de tournoi, un lieu du tournoi, un nombre de tours, une description.
+
+- Il faut au minimum 2 joueurs inscrits dans l'application pour pouvoir sélectionner les joueurs pour le tournoi à démarrer.
+- Une fois le tournoi démarré, des paires vont être générées. Les joueurs seront dans un premier temps triés aléatoirement et ne se rencontreront jamais deux fois durant le tournoi.
+
+- Pour chaque match, vous serez invité à indiquer le joueur gagnant ou s'il y a égalité.
+
+-Une fois que les matchs/tours sont terminés ou si les joueurs ont tous eu un adversaire unique, le tournoi prend fin.
+
+- Un classement du tournoi sera affiché par ordre décroissant de points, ainsi que les résultats des matchs du tournoi.
+
+-Le match étant terminé, vous pouvez le consulter par le menu Rapport en sélectionnant le bon nom du tournoi.
+Vous pouvez également à tout moment revenir au menu principal et/ou quitter l'application puis continuer un tournoi déjà en cours.
+
 ### 3) Menu Rapports
-- Lorsque vous sélectionnez cette option, vous êtes invité à rentrer le nombre de joueurs à créer.
-
-
-
-
-
+-Le menu Rapports vous permet de consulter un tournoi terminé. Vous pouvez voir les résultats pour chaque match et le classement.
+Generer le rapport Flake 8
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 - Installez flake8 avec la commande: 
