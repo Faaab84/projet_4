@@ -38,26 +38,17 @@ python main.py
 - Vous pouvez egalement à tout moment revenir au menu principale et/ou quitter l'application puis continuer un tournoi deja en cours.
  
 ### 3) Menu Rapports
-- Lorsque vous sélectionnez cette option, vous êtes invité à rentrer le nombre de joueurs à créer.
-
-
-
+- Lorsque vous sélectionnez cette option, vous pouvez consulter un tournoi terminez afin de voir le classement et les resultats des matchs lors des differend tours.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Rapport Flake8
 
-- Installez flake8 avec la commande: 
+ activez l'environnement virtuel.
 ```
-pip intall flake8-html
+env\Scripts\activate
 ```
-- S'il n'existe pas, créer un fichier setup.cfg
-- Ecrire le texte suivant dedans:
-```
-[flake8]
-exclude = .git, env, __pycache__, .gitignore
-max-line-length = 119
-```
-- Tapez la commande:
+puis faites la commande
 ```
 flake8 --format=html --htmldir=flake-report
 ```
-- Le rapport sera généré dans le dossier flake8.
+- Le rapport sera généré dans le dossier flake-report.
