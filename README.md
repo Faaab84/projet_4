@@ -1,4 +1,4 @@
-# OpenClassrooms: Projet 4: Chess Tournament
+# OpenClassrooms: Projet 4: 
 Ce programme a été créé dans le cadre du projet 4 d'OpenClassrooms. Il s'agit d'un gestionnaire de tournois d'échecs.
 ## Installation:
 Commencez tout d'abord par installer Python.
