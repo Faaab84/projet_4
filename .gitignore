@@ -1,6 +1,10 @@
-
 .idea/
+.git/
+/httpRequests/
+/dataSources/
+/dataSources.local.xml
+tournois.json
+joueurs.json
+__pycache__/
+*.pyc
 .gitignore
-models/__pycache__
-view/__pycache__
-controllers/__pycache__
