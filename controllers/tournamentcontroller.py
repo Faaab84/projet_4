@@ -35,7 +35,7 @@ class TournamentController:
         infos = TournamentCreation.demander_infos_tournoi()
         if infos is None:
             return None
-        date = datetime.now().strftime("%d-%m-%Y")
+        date = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 
         joueurs_disponibles = Joueur.read_json()
         if len(joueurs_disponibles) < 2:

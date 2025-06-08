@@ -55,7 +55,7 @@ def main():
                 selection = input("\nNuméro du tournoi pour voir le "
                                   "rapport (ou 'q' pour quitter) : ").strip()
                 if selection.lower() == "q":
-                    continue  # Revenir au menu principal
+                    continue
                 if selection.isdigit():
                     numero = int(selection)
                     if numero > 0 and numero <= len(termines):
@@ -75,6 +75,6 @@ def main():
             print("Choix invalide")
 
 
-# Point d'entrée
+
 if __name__ == "__main__":
     main()
