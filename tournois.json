@@ -1,0 +1,632 @@
+[
+    {
+        "nom": "a",
+        "lieu": "a",
+        "date": "30-05-2025",
+        "nombre_tours": 4,
+        "description": "",
+        "etat": "Terminé",
+        "joueurs": [
+            {
+                "identifiant_national": "AQ12345",
+                "prenom": "z",
+                "nom": "z",
+                "date_de_naissance": "09-12-1993",
+                "score": 1.0
+            },
+            {
+                "identifiant_national": "AZ12345",
+                "prenom": "o",
+                "nom": "o",
+                "date_de_naissance": "09-10-1996",
+                "score": 0.0
+            }
+        ],
+        "tours": [
+            {
+                "nom": "Tour 1",
+                "joueurs": [
+                    {
+                        "identifiant_national": "AQ12345",
+                        "prenom": "z",
+                        "nom": "z",
+                        "date_de_naissance": "09-12-1993",
+                        "score": 1.0
+                    },
+                    {
+                        "identifiant_national": "AZ12345",
+                        "prenom": "o",
+                        "nom": "o",
+                        "date_de_naissance": "09-10-1996",
+                        "score": 0.0
+                    }
+                ],
+                "matchs": [
+                    {
+                        "joueur1": {
+                            "identifiant_national": "AQ12345",
+                            "prenom": "z",
+                            "nom": "z",
+                            "date_de_naissance": "09-12-1993",
+                            "score": 1.0
+                        },
+                        "joueur2": {
+                            "identifiant_national": "AZ12345",
+                            "prenom": "o",
+                            "nom": "o",
+                            "date_de_naissance": "09-10-1996",
+                            "score": 0.0
+                        },
+                        "scorej1": 1,
+                        "scorej2": 0
+                    }
+                ],
+                "date_debut": "30-05-2025 23:00:38",
+                "date_fin": "30-05-2025 23:00:42",
+                "etat": "Terminé"
+            }
+        ],
+        "paires_jouees": [
+            [
+                "AQ12345",
+                "AZ12345"
+            ]
+        ]
+    },
+    {
+        "nom": "s",
+        "lieu": "s",
+        "date": "07-06-2025 12:52:15",
+        "nombre_tours": 4,
+        "description": "s",
+        "etat": "Terminé",
+        "joueurs": [
+            {
+                "identifiant_national": "AQ12345",
+                "prenom": "z",
+                "nom": "z",
+                "date_de_naissance": "09-12-1993",
+                "score": 1.0
+            },
+            {
+                "identifiant_national": "AZ12345",
+                "prenom": "o",
+                "nom": "o",
+                "date_de_naissance": "09-10-1996",
+                "score": 0.0
+            }
+        ],
+        "tours": [
+            {
+                "nom": "Tour 1",
+                "joueurs": [
+                    {
+                        "identifiant_national": "AQ12345",
+                        "prenom": "z",
+                        "nom": "z",
+                        "date_de_naissance": "09-12-1993",
+                        "score": 1.0
+                    },
+                    {
+                        "identifiant_national": "AZ12345",
+                        "prenom": "o",
+                        "nom": "o",
+                        "date_de_naissance": "09-10-1996",
+                        "score": 0.0
+                    }
+                ],
+                "matchs": [
+                    {
+                        "joueur1": {
+                            "identifiant_national": "AQ12345",
+                            "prenom": "z",
+                            "nom": "z",
+                            "date_de_naissance": "09-12-1993",
+                            "score": 1.0
+                        },
+                        "joueur2": {
+                            "identifiant_national": "AZ12345",
+                            "prenom": "o",
+                            "nom": "o",
+                            "date_de_naissance": "09-10-1996",
+                            "score": 0.0
+                        },
+                        "scorej1": 1,
+                        "scorej2": 0
+                    }
+                ],
+                "date_debut": "07-06-2025 12:52:19",
+                "date_fin": "07-06-2025 12:52:22",
+                "etat": "Terminé"
+            }
+        ],
+        "paires_jouees": [
+            [
+                "AQ12345",
+                "AZ12345"
+            ]
+        ]
+    },
+    {
+        "nom": "d",
+        "lieu": "f",
+        "date": "08-06-2025 08:45:28",
+        "nombre_tours": 4,
+        "description": "z",
+        "etat": "Terminé",
+        "joueurs": [
+            {
+                "identifiant_national": "AZ14568",
+                "prenom": "bal",
+                "nom": "Fabien",
+                "date_de_naissance": "09-10-1995",
+                "score": 1.0
+            },
+            {
+                "identifiant_national": "AZ12345",
+                "prenom": "o",
+                "nom": "o",
+                "date_de_naissance": "09-10-1996",
+                "score": 0.5
+            },
+            {
+                "identifiant_national": "AQ12345",
+                "prenom": "z",
+                "nom": "z",
+                "date_de_naissance": "09-12-1993",
+                "score": 1.5
+            }
+        ],
+        "tours": [
+            {
+                "nom": "Tour 1",
+                "joueurs": [
+                    {
+                        "identifiant_national": "AZ14568",
+                        "prenom": "bal",
+                        "nom": "Fabien",
+                        "date_de_naissance": "09-10-1995",
+                        "score": 1.0
+                    },
+                    {
+                        "identifiant_national": "AZ12345",
+                        "prenom": "o",
+                        "nom": "o",
+                        "date_de_naissance": "09-10-1996",
+                        "score": 0.5
+                    },
+                    {
+                        "identifiant_national": "AQ12345",
+                        "prenom": "z",
+                        "nom": "z",
+                        "date_de_naissance": "09-12-1993",
+                        "score": 1.5
+                    }
+                ],
+                "matchs": [
+                    {
+                        "joueur1": {
+                            "identifiant_national": "AZ14568",
+                            "prenom": "bal",
+                            "nom": "Fabien",
+                            "date_de_naissance": "09-10-1995",
+                            "score": 1.0
+                        },
+                        "joueur2": {
+                            "identifiant_national": "AZ12345",
+                            "prenom": "o",
+                            "nom": "o",
+                            "date_de_naissance": "09-10-1996",
+                            "score": 0.5
+                        },
+                        "scorej1": 1,
+                        "scorej2": 0
+                    }
+                ],
+                "date_debut": "08-06-2025 08:45:33",
+                "date_fin": "08-06-2025 08:45:39",
+                "etat": "Terminé"
+            },
+            {
+                "nom": "Tour 2",
+                "joueurs": [
+                    {
+                        "identifiant_national": "AZ14568",
+                        "prenom": "bal",
+                        "nom": "Fabien",
+                        "date_de_naissance": "09-10-1995",
+                        "score": 1.0
+                    },
+                    {
+                        "identifiant_national": "AZ12345",
+                        "prenom": "o",
+                        "nom": "o",
+                        "date_de_naissance": "09-10-1996",
+                        "score": 0.5
+                    },
+                    {
+                        "identifiant_national": "AQ12345",
+                        "prenom": "z",
+                        "nom": "z",
+                        "date_de_naissance": "09-12-1993",
+                        "score": 1.5
+                    }
+                ],
+                "matchs": [
+                    {
+                        "joueur1": {
+                            "identifiant_national": "AZ14568",
+                            "prenom": "bal",
+                            "nom": "Fabien",
+                            "date_de_naissance": "09-10-1995",
+                            "score": 1.0
+                        },
+                        "joueur2": {
+                            "identifiant_national": "AQ12345",
+                            "prenom": "z",
+                            "nom": "z",
+                            "date_de_naissance": "09-12-1993",
+                            "score": 1.5
+                        },
+                        "scorej1": 0,
+                        "scorej2": 1
+                    }
+                ],
+                "date_debut": "08-06-2025 08:45:39",
+                "date_fin": "08-06-2025 08:45:46",
+                "etat": "Terminé"
+            },
+            {
+                "nom": "Tour 3",
+                "joueurs": [
+                    {
+                        "identifiant_national": "AZ14568",
+                        "prenom": "bal",
+                        "nom": "Fabien",
+                        "date_de_naissance": "09-10-1995",
+                        "score": 1.0
+                    },
+                    {
+                        "identifiant_national": "AZ12345",
+                        "prenom": "o",
+                        "nom": "o",
+                        "date_de_naissance": "09-10-1996",
+                        "score": 0.5
+                    },
+                    {
+                        "identifiant_national": "AQ12345",
+                        "prenom": "z",
+                        "nom": "z",
+                        "date_de_naissance": "09-12-1993",
+                        "score": 1.5
+                    }
+                ],
+                "matchs": [
+                    {
+                        "joueur1": {
+                            "identifiant_national": "AQ12345",
+                            "prenom": "z",
+                            "nom": "z",
+                            "date_de_naissance": "09-12-1993",
+                            "score": 1.5
+                        },
+                        "joueur2": {
+                            "identifiant_national": "AZ12345",
+                            "prenom": "o",
+                            "nom": "o",
+                            "date_de_naissance": "09-10-1996",
+                            "score": 0.5
+                        },
+                        "scorej1": 0.5,
+                        "scorej2": 0.5
+                    }
+                ],
+                "date_debut": "08-06-2025 08:45:46",
+                "date_fin": "08-06-2025 08:45:48",
+                "etat": "Terminé"
+            }
+        ],
+        "paires_jouees": [
+            [
+                "AZ14568",
+                "AZ12345"
+            ],
+            [
+                "AZ14568",
+                "AQ12345"
+            ],
+            [
+                "AQ12345",
+                "AZ12345"
+            ]
+        ]
+    },
+    {
+        "nom": "tournoi d'essai",
+        "lieu": "aix",
+        "date": "08-06-2025 08:59:11",
+        "nombre_tours": 4,
+        "description": "tournoi d'essai",
+        "etat": "Terminé",
+        "joueurs": [
+            {
+                "identifiant_national": "AZ14568",
+                "prenom": "bal",
+                "nom": "Fabien",
+                "date_de_naissance": "09-10-1995",
+                "score": 1.5
+            },
+            {
+                "identifiant_national": "AZ12345",
+                "prenom": "o",
+                "nom": "o",
+                "date_de_naissance": "09-10-1996",
+                "score": 0.5
+            },
+            {
+                "identifiant_national": "AZ12378",
+                "prenom": "plip",
+                "nom": "Paul",
+                "date_de_naissance": "09-10-1995",
+                "score": 2.0
+            },
+            {
+                "identifiant_national": "AQ12345",
+                "prenom": "z",
+                "nom": "z",
+                "date_de_naissance": "09-12-1993",
+                "score": 2.0
+            }
+        ],
+        "tours": [
+            {
+                "nom": "Tour 1",
+                "joueurs": [
+                    {
+                        "identifiant_national": "AZ14568",
+                        "prenom": "bal",
+                        "nom": "Fabien",
+                        "date_de_naissance": "09-10-1995",
+                        "score": 1.5
+                    },
+                    {
+                        "identifiant_national": "AZ12345",
+                        "prenom": "o",
+                        "nom": "o",
+                        "date_de_naissance": "09-10-1996",
+                        "score": 0.5
+                    },
+                    {
+                        "identifiant_national": "AZ12378",
+                        "prenom": "plip",
+                        "nom": "Paul",
+                        "date_de_naissance": "09-10-1995",
+                        "score": 2.0
+                    },
+                    {
+                        "identifiant_national": "AQ12345",
+                        "prenom": "z",
+                        "nom": "z",
+                        "date_de_naissance": "09-12-1993",
+                        "score": 2.0
+                    }
+                ],
+                "matchs": [
+                    {
+                        "joueur1": {
+                            "identifiant_national": "AZ14568",
+                            "prenom": "bal",
+                            "nom": "Fabien",
+                            "date_de_naissance": "09-10-1995",
+                            "score": 1.5
+                        },
+                        "joueur2": {
+                            "identifiant_national": "AZ12345",
+                            "prenom": "o",
+                            "nom": "o",
+                            "date_de_naissance": "09-10-1996",
+                            "score": 0.5
+                        },
+                        "scorej1": 1,
+                        "scorej2": 0
+                    },
+                    {
+                        "joueur1": {
+                            "identifiant_national": "AZ12378",
+                            "prenom": "plip",
+                            "nom": "Paul",
+                            "date_de_naissance": "09-10-1995",
+                            "score": 2.0
+                        },
+                        "joueur2": {
+                            "identifiant_national": "AQ12345",
+                            "prenom": "z",
+                            "nom": "z",
+                            "date_de_naissance": "09-12-1993",
+                            "score": 2.0
+                        },
+                        "scorej1": 0,
+                        "scorej2": 1
+                    }
+                ],
+                "date_debut": "08-06-2025 08:59:16",
+                "date_fin": "08-06-2025 08:59:22",
+                "etat": "Terminé"
+            },
+            {
+                "nom": "Tour 2",
+                "joueurs": [
+                    {
+                        "identifiant_national": "AZ14568",
+                        "prenom": "bal",
+                        "nom": "Fabien",
+                        "date_de_naissance": "09-10-1995",
+                        "score": 1.5
+                    },
+                    {
+                        "identifiant_national": "AZ12345",
+                        "prenom": "o",
+                        "nom": "o",
+                        "date_de_naissance": "09-10-1996",
+                        "score": 0.5
+                    },
+                    {
+                        "identifiant_national": "AZ12378",
+                        "prenom": "plip",
+                        "nom": "Paul",
+                        "date_de_naissance": "09-10-1995",
+                        "score": 2.0
+                    },
+                    {
+                        "identifiant_national": "AQ12345",
+                        "prenom": "z",
+                        "nom": "z",
+                        "date_de_naissance": "09-12-1993",
+                        "score": 2.0
+                    }
+                ],
+                "matchs": [
+                    {
+                        "joueur1": {
+                            "identifiant_national": "AZ14568",
+                            "prenom": "bal",
+                            "nom": "Fabien",
+                            "date_de_naissance": "09-10-1995",
+                            "score": 1.5
+                        },
+                        "joueur2": {
+                            "identifiant_national": "AQ12345",
+                            "prenom": "z",
+                            "nom": "z",
+                            "date_de_naissance": "09-12-1993",
+                            "score": 2.0
+                        },
+                        "scorej1": 0.5,
+                        "scorej2": 0.5
+                    },
+                    {
+                        "joueur1": {
+                            "identifiant_national": "AZ12378",
+                            "prenom": "plip",
+                            "nom": "Paul",
+                            "date_de_naissance": "09-10-1995",
+                            "score": 2.0
+                        },
+                        "joueur2": {
+                            "identifiant_national": "AZ12345",
+                            "prenom": "o",
+                            "nom": "o",
+                            "date_de_naissance": "09-10-1996",
+                            "score": 0.5
+                        },
+                        "scorej1": 1,
+                        "scorej2": 0
+                    }
+                ],
+                "date_debut": "08-06-2025 08:59:22",
+                "date_fin": "08-06-2025 08:59:26",
+                "etat": "Terminé"
+            },
+            {
+                "nom": "Tour 3",
+                "joueurs": [
+                    {
+                        "identifiant_national": "AZ14568",
+                        "prenom": "bal",
+                        "nom": "Fabien",
+                        "date_de_naissance": "09-10-1995",
+                        "score": 1.5
+                    },
+                    {
+                        "identifiant_national": "AZ12345",
+                        "prenom": "o",
+                        "nom": "o",
+                        "date_de_naissance": "09-10-1996",
+                        "score": 0.5
+                    },
+                    {
+                        "identifiant_national": "AZ12378",
+                        "prenom": "plip",
+                        "nom": "Paul",
+                        "date_de_naissance": "09-10-1995",
+                        "score": 2.0
+                    },
+                    {
+                        "identifiant_national": "AQ12345",
+                        "prenom": "z",
+                        "nom": "z",
+                        "date_de_naissance": "09-12-1993",
+                        "score": 2.0
+                    }
+                ],
+                "matchs": [
+                    {
+                        "joueur1": {
+                            "identifiant_national": "AZ14568",
+                            "prenom": "bal",
+                            "nom": "Fabien",
+                            "date_de_naissance": "09-10-1995",
+                            "score": 1.5
+                        },
+                        "joueur2": {
+                            "identifiant_national": "AZ12378",
+                            "prenom": "plip",
+                            "nom": "Paul",
+                            "date_de_naissance": "09-10-1995",
+                            "score": 2.0
+                        },
+                        "scorej1": 0,
+                        "scorej2": 1
+                    },
+                    {
+                        "joueur1": {
+                            "identifiant_national": "AQ12345",
+                            "prenom": "z",
+                            "nom": "z",
+                            "date_de_naissance": "09-12-1993",
+                            "score": 2.0
+                        },
+                        "joueur2": {
+                            "identifiant_national": "AZ12345",
+                            "prenom": "o",
+                            "nom": "o",
+                            "date_de_naissance": "09-10-1996",
+                            "score": 0.5
+                        },
+                        "scorej1": 0.5,
+                        "scorej2": 0.5
+                    }
+                ],
+                "date_debut": "08-06-2025 08:59:26",
+                "date_fin": "08-06-2025 08:59:29",
+                "etat": "Terminé"
+            }
+        ],
+        "paires_jouees": [
+            [
+                "AZ14568",
+                "AZ12345"
+            ],
+            [
+                "AZ12378",
+                "AQ12345"
+            ],
+            [
+                "AZ14568",
+                "AQ12345"
+            ],
+            [
+                "AZ12378",
+                "AZ12345"
+            ],
+            [
+                "AZ14568",
+                "AZ12378"
+            ],
+            [
+                "AQ12345",
+                "AZ12345"
+            ]
+        ]
+    }
+]
