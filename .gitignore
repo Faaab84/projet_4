@@ -1,5 +1,5 @@
 
-idea/
+.idea/
 .gitignore
 models/__pycache__
 view/__pycache__
