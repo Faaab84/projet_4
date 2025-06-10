@@ -1,6 +1,5 @@
 import json
 import os
-from datetime import datetime
 from models.round import Round
 from models.player import Joueur
 
@@ -56,15 +55,6 @@ class Tournois:
             liste_tournois.append(tournoi)
         return liste_tournois
 
-    # Génère le premier tour du tournoi avec les joueurs inscrits
-    def generer_premier_tour(self):
-        nom_tour = "Tour 1"
-        date_debut = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
-        date_fin = ""
-        round1 = Round(nom_tour, self.joueurs, date_debut, date_fin)
-        round1.generer_paire()
-        self.tours = [round1]
-
     # Convertit les informations en dictionnaire pour la sauvegarde
     def to_save(self):
         return {
@@ -78,3 +68,23 @@ class Tournois:
             "tours": [tour.to_save() for tour in self.tours],
             "paires_jouees": self.paires_jouees
         }
+
+    # Sauvegarde le tournoi dans un fichier JSON
+    def save(self, fichier="tournois.json"):
+        data = []
+        if os.path.exists(fichier):
+            with open(fichier, "r", encoding="utf-8") as f:
+                try:
+                    data = json.load(f)
+                except json.JSONDecodeError:
+                    data = []
+
+        new_data = []
+        for t in data:
+            if t.get("nom") != self.nom or t.get("date") != self.date:
+                new_data.append(t)
+        data = new_data
+
+        data.append(self.to_save())
+        with open(fichier, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
