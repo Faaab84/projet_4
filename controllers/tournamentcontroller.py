@@ -9,7 +9,8 @@ import random
 
 
 class TournamentController:
-    """Crée un nouveau tournoi en demandant les informations nécessaires et en sélectionnant les joueurs"""
+    """Crée un nouveau tournoi en demandant les informations nécessaires
+    et en sélectionnant les joueurs"""
     def creer_nouveau_tournoi(self):
         while True:
             nom = input("Nom du tournoi (ou 'q' pour quitter) : ").strip()
@@ -45,7 +46,8 @@ class TournamentController:
 
         while True:
             selection = input(
-                "Numéros des joueurs à inscrire (séparés par des virgules, ou 'q' pour quitter) : ").strip()
+                "Numéros des joueurs à inscrire (séparés par des virgules,"
+                " ou 'q' pour quitter) : ").strip()
             if selection.lower() == "q":
                 return None
             indices = []
@@ -74,7 +76,9 @@ class TournamentController:
         self.creer_tour(tournoi, round_number=0)
         tournoi.save()
 
-        print(f"\nTournoi '{tournoi.nom}' créé avec {len(joueurs_selectionnes)} joueurs et {tournoi.nombre_tours} tours !")
+        print(f"\nTournoi '{tournoi.nom}' créé avec"
+              f" {len(joueurs_selectionnes)} "
+              f"joueurs et {tournoi.nombre_tours} tours !")
         print(f"\n--- {tournoi.tours[0].nom} ---")
         tournoi.tours[0].afficher_matchs()
         return tournoi
@@ -93,8 +97,6 @@ class TournamentController:
         nouveau_tour = Round(nom_tour, tournoi.joueurs, date_debut, "")
         nouveau_tour.matchs = [Match(j1, j2) for j1, j2 in joueurs_pairs]
         tournoi.tours.append(nouveau_tour)
-
-
         for j1, j2 in joueurs_pairs:
             paire = [j1.identifiant_national, j2.identifiant_national]
             tournoi.paires_jouees.append(paire)
@@ -105,10 +107,7 @@ class TournamentController:
         max_paires = (nombre_joueurs * (nombre_joueurs - 1)) // 2
         if len(tournoi.paires_jouees) >= max_paires:
             return []
-
-
         if round_number == 0:
-
             sorted_players = tournoi.joueurs.copy()
             random.shuffle(sorted_players)
         else:
@@ -121,8 +120,6 @@ class TournamentController:
 
         joueurs_pairs = []
         used_players = set()
-
-        # Créer les paires
         for i, player1 in enumerate(sorted_players):
             if player1 in used_players:
                 continue
@@ -130,9 +127,12 @@ class TournamentController:
                 player2 = sorted_players[j]
                 if player2 in used_players:
                     continue
-                paire = [player1.identifiant_national, player2.identifiant_national]
-                paire_inversee = [player2.identifiant_national, player1.identifiant_national]
-                if paire not in tournoi.paires_jouees and paire_inversee not in tournoi.paires_jouees:
+                paire = [player1.identifiant_national,
+                         player2.identifiant_national]
+                paire_inversee = [player2.identifiant_national,
+                                  player1.identifiant_national]
+                if paire not in tournoi.paires_jouees and \
+                        paire_inversee not in tournoi.paires_jouees:
                     joueurs_pairs.append((player1, player2))
                     used_players.add(player1)
                     used_players.add(player2)
@@ -150,13 +150,16 @@ class TournamentController:
         score = 0.0
         for tour in tournoi.tours:
             for match in tour.matchs:
-                if match.joueur1.identifiant_national == joueur.identifiant_national:
+                if match.joueur1.identifiant_national ==\
+                        joueur.identifiant_national:
                     score += match.scorej1 or 0
-                elif match.joueur2.identifiant_national == joueur.identifiant_national:
+                elif match.joueur2.identifiant_national ==\
+                        joueur.identifiant_national:
                     score += match.scorej2 or 0
         return score
 
-    """Permet de continuer un tournoi en cours en sélectionnant parmi les tournois disponibles"""
+    """Permet de continuer un tournoi en cours en
+     sélectionnant parmi les tournois disponibles"""
     def continuer_tournoi(self):
         tournois = Tournois.from_fichier()
         en_cours = []
@@ -173,7 +176,8 @@ class TournamentController:
             print(f"{idx}. {tournoi.nom} ({tournoi.lieu}, {tournoi.date})")
 
         while True:
-            choix = input("Numéro du tournoi à continuer (ou 'q' pour quitter) : ").strip()
+            choix = input("Numéro du tournoi à continuer "
+                          "(ou 'q' pour quitter) : ").strip()
             if choix.lower() == "q":
                 return None
             try:
@@ -188,13 +192,15 @@ class TournamentController:
             except ValueError:
                 print("Entrée invalide.")
 
-    """Gère le déroulement d'un tournoi, y compris la saisie des résultats et la génération des tours"""
+    """Gère le déroulement d'un tournoi, y compris la saisie
+     des résultats et la génération des tours"""
     def jouer_tournoi(self, tournoi):
         if tournoi.tours and tournoi.tours[-1].etat != "Terminé":
             if not self.saisir_resultats_tournoi(tournoi):
                 return False
 
-        while len(tournoi.tours) < tournoi.nombre_tours and tournoi.etat == "En cours":
+        while len(tournoi.tours) < tournoi.nombre_tours and\
+                tournoi.etat == "En cours":
             self.creer_tour(tournoi, round_number=len(tournoi.tours))
             if tournoi.etat == "Terminé":
                 break
