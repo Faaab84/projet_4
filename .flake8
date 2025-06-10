@@ -5,3 +5,5 @@ exclude =
     venv\,
     projet_4\Lib\site-packages\,
     *.pyc
+    .env
+    env\
