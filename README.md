@@ -6,7 +6,7 @@ Lancez ensuite la console, placez vous dans le dossier de votre choix puis clone
 ```
 git clone https://github.com/Faaab84/projet_4.git
 ```
-Placez vous dans le dossier projet_4-main/projet_4-main, puis creer et demarrer l'environnement virtuel:
+Placez vous dans le dossier , puis creer et demarrer l'environnement virtuel:
 ```
 python -m venv env
 ```
