@@ -14,20 +14,22 @@ class TournamentController:
     def creer_nouveau_tournoi(self):
         """Crée un nouveau tournoi avec les informations utilisateur."""
         while True:
-            nom = input("Nom du tournoi (ou 'q' pour quitter) : ").strip()
+            TournamentCreation.display_prompt_tournament_name()
+            nom = input().strip()
             if nom.lower() == "q":
                 return None
             if nom == "":
-                print("Le nom du tournoi ne peut pas être vide.")
+                TournamentCreation.display_error_empty_name()
                 continue
             break
 
         while True:
-            lieu = input("Lieu du tournoi (ou 'q' pour quitter) : ").strip()
+            TournamentCreation.display_prompt_location()
+            lieu = input().strip()
             if lieu.lower() == "q":
                 return None
             if lieu == "":
-                print("Le lieu ne peut pas être vide.")
+                TournamentCreation.display_error_empty_location()
                 continue
             break
 
@@ -38,17 +40,16 @@ class TournamentController:
 
         joueurs_disponibles = Joueur.read_json()
         if len(joueurs_disponibles) < 2:
-            print("Erreur : il faut au moins 2 joueurs pour créer un tournoi.")
+            TournamentCreation.display_error_insufficient_players()
             return None
 
-        print("\nListe des joueurs disponibles :")
+        TournamentCreation.display_available_players()
         for idx, joueur in enumerate(joueurs_disponibles, 1):
-            print(f"{idx}. {joueur.prenom} {joueur.nom}")
+            TournamentCreation.display_player(idx, joueur)
 
         while True:
-            selection = input(
-                "Numéros des joueurs à inscrire (séparés par des virgules, "
-                "ou 'q' pour quitter) : ").strip()
+            TournamentCreation.display_prompt_player_selection()
+            selection = input().strip()
             if selection.lower() == "q":
                 return None
             indices = []
@@ -60,7 +61,7 @@ class TournamentController:
                 if 0 <= i < len(joueurs_disponibles):
                     joueurs_selectionnes.append(joueurs_disponibles[i])
             if len(joueurs_selectionnes) < 2:
-                print("Erreur : il faut sélectionner au moins 2 joueurs.")
+                TournamentCreation.display_error_invalid_selection()
             else:
                 break
 
@@ -77,9 +78,8 @@ class TournamentController:
         self.creer_tour(tournoi, round_number=0)
         tournoi.save()
 
-        print(f"\nTournoi '{tournoi.nom}' créé avec {len(joueurs_selectionnes)} "
-              f"joueurs et {tournoi.nombre_tours} tours !")
-        print(f"\n--- {tournoi.tours[0].nom} ---")
+        TournamentCreation.display_tournament_created(tournoi, len(joueurs_selectionnes))
+        TournamentCreation.display_round_title(tournoi.tours[0].nom)
         tournoi.tours[0].afficher_matchs()
         return tournoi
 
@@ -87,7 +87,7 @@ class TournamentController:
         """Génère un nouveau tour avec des appariements uniques."""
         joueurs_pairs = self.creer_paires_joueurs(tournoi, round_number)
         if not joueurs_pairs:
-            print("Plus de matchs possibles, le tournoi est terminé !")
+            TournamentCreation.display_no_valid_pairs()
             tournoi.etat = "Terminé"
             tournoi.save()
             return
@@ -161,15 +161,16 @@ class TournamentController:
                 en_cours.append(t)
 
         if not en_cours:
-            print("Aucun tournoi en cours à continuer.")
+            TournamentCreation.display_no_ongoing_tournaments()
             return None
 
-        print("\nTournois en cours :")
+        TournamentCreation.display_ongoing_tournaments()
         for idx, tournoi in enumerate(en_cours, 1):
-            print(f"{idx}. {tournoi.nom} ({tournoi.lieu}, {tournoi.date})")
+            TournamentCreation.display_tournament(idx, tournoi)
 
         while True:
-            choix = input("Numéro du tournoi à continuer (ou 'q' pour quitter) : ").strip()
+            TournamentCreation.display_prompt_tournament_selection()
+            choix = input().strip()
             if choix.lower() == "q":
                 return None
             try:
@@ -180,9 +181,9 @@ class TournamentController:
                         return None
                     return tournoi
                 else:
-                    print("Numéro invalide.")
+                    TournamentCreation.display_error_invalid_tournament_number()
             except ValueError:
-                print("Entrée invalide.")
+                TournamentCreation.display_error_invalid_input()
 
     def jouer_tournoi(self, tournoi):
         """Gère la progression d'un tournoi avec saisie des résultats."""
@@ -194,7 +195,7 @@ class TournamentController:
             self.creer_tour(tournoi, round_number=len(tournoi.tours))
             if tournoi.etat == "Terminé":
                 break
-            print(f"\n--- {tournoi.tours[-1].nom} ---")
+            TournamentCreation.display_round_title(tournoi.tours[-1].nom)
             tournoi.tours[-1].afficher_matchs()
             if not self.saisir_resultats_tournoi(tournoi):
                 return False
@@ -210,7 +211,7 @@ class TournamentController:
         for tour in tournoi.tours:
             if tour.etat == "Terminé":
                 continue
-            print(f"\n--- {tour.nom} ---")
+            TournamentCreation.display_round_title(tour.nom)
             tour.demarrer()
             for match in tour.matchs:
                 if match.scorej1 is not None and match.scorej2 is not None:

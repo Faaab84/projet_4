@@ -1,14 +1,16 @@
-
 from models.player import Joueur
 from views.create_player import Player_create
 
 
 class JoueurController:
+    """Gère les opérations liées aux joueurs dans le tournoi."""
 
-    def __init__(self):  # initialisation du constructeur de la classe
+    def __init__(self):
+        """Initialise le contrôleur avec une vue pour la création de joueurs."""
         self.vue = Player_create()
 
-    def creer_joueur(self):  # méthode pour créer un nouveau joueur
+    def creer_joueur(self):
+        """Crée un nouveau joueur à partir des informations utilisateur."""
         infos = self.vue.demander_infos_joueur()
         if infos is None:
             return None
@@ -20,17 +22,16 @@ class JoueurController:
             score=0.0
         )
         Joueur.save_joueur(joueur)
-        print(f"\nLe joueur {joueur.prenom} {joueur.nom} a été créé "
-              f"avec succès!")
+        self.vue.display_player_created(joueur)
         return joueur
 
     def lister_joueurs(self):
+        """Affiche la liste des joueurs triée par nom."""
         joueurs = Joueur.read_json()
         if not joueurs:
-            print("\nAucun joueur enregistré")
+            self.vue.display_no_players()
             return
         joueurs.sort(key=lambda joueur: joueur.nom.lower())
-        print("\n=== Liste des joueurs ===\n")
+        self.vue.display_players_header()
         for joueur in joueurs:
-            print(joueur)
-
+            self.vue.display_player(joueur)
