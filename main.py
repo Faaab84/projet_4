@@ -4,8 +4,8 @@ from controllers.tournamentcontroller import TournamentController
 from views.rapport import Rapport
 
 
-# Fonction principale qui exécute le tournoi
 def main():
+    """Exécute le programme principal de gestion des tournois."""
     joueur_controller = JoueurController()
     tournoi_controller = TournamentController()
 

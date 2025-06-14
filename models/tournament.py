@@ -5,8 +5,10 @@ from models.player import Joueur
 
 
 class Tournois:
-    # Initialise un tournoi avec ses informations de base et ses paramètres
+    """Représente un tournoi d'échecs avec ses informations."""
+
     def __init__(self, nom, lieu, date, nombre_tours=4, description=""):
+        """Initialise un tournoi avec ses paramètres."""
         self.nom = nom
         self.lieu = lieu
         self.date = date
@@ -17,8 +19,8 @@ class Tournois:
         self.tours = []
         self.paires_jouees = []
 
-    # Charge les données d'un tournoi à partir d'un dictionnaire
     def from_save(self, data):
+        """Charge les données d'un tournoi depuis un dictionnaire."""
         self.nom = data.get("nom", "")
         self.lieu = data.get("lieu", "")
         self.date = data.get("date", "")
@@ -38,9 +40,9 @@ class Tournois:
         for p in data.get("paires_jouees", []):
             self.paires_jouees.append(p)
 
-    # Charge une liste de tournois à partir d'un fichier JSON
     @classmethod
     def from_fichier(cls, fichier="tournois.json"):
+        """Charge une liste de tournois depuis un fichier JSON."""
         if not os.path.exists(fichier):
             return []
         with open(fichier, "r", encoding="utf-8") as f:
@@ -55,8 +57,8 @@ class Tournois:
             liste_tournois.append(tournoi)
         return liste_tournois
 
-    # Convertit les informations en dictionnaire pour la sauvegarde
     def to_save(self):
+        """Convertit le tournoi en dictionnaire pour la sauvegarde."""
         return {
             "nom": self.nom,
             "lieu": self.lieu,
@@ -69,8 +71,8 @@ class Tournois:
             "paires_jouees": self.paires_jouees
         }
 
-    # Sauvegarde le tournoi dans un fichier JSON
     def save(self, fichier="tournois.json"):
+        """Enregistre le tournoi dans un fichier JSON."""
         data = []
         if os.path.exists(fichier):
             with open(fichier, "r", encoding="utf-8") as f:

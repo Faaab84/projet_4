@@ -1,7 +1,9 @@
 class Menu:
+    """Gère l'affichage des menus et la collecte des choix de l'utilisateur."""
+
     @staticmethod
-    # Affiche le menu et récupère le choix de l'utilisateur
     def afficher_menu_principal():
+        """Affiche le menu principal et récupère le choix."""
         print("\n============== Menu Principal ==============")
         print("1. Menu joueurs")
         print("2. Menu tournois")
@@ -10,8 +12,8 @@ class Menu:
         return input("Votre choix : ")
 
     @staticmethod
-    # Affiche le menu des joueurs et récupère le choix
     def afficher_menu_joueur():
+        """Affiche le menu des joueurs et récupère le choix."""
         print("\n============== Menu Joueur ==============")
         print("1. Créer un nouveau joueur")
         print("2. Afficher la liste des joueurs")
@@ -19,8 +21,8 @@ class Menu:
         return input("Votre choix : ")
 
     @staticmethod
-    # Affiche le menu des options et récupère le choix
     def afficher_menu_tournois():
+        """Affiche le menu des tournois et récupère le choix."""
         print("\n============== Menu Tournoi ==============")
         print("1. Démarrer un nouveau tournoi")
         print("2. Continuer un tournoi")

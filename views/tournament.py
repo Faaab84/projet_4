@@ -1,10 +1,11 @@
 class TournamentCreation:
-    # Demande et valide les informations pour créer un tournoi
+    """Collecte les informations et résultats pour les tournois d'échecs."""
+
     @staticmethod
     def demander_infos_tournoi():
+        """Collecte le nombre de tours et la description du tournoi."""
         while True:
-            nombre_tours = input("Nombre de tours (par défaut 4, "
-                                 "ou 'q' pour quitter) : ").strip()
+            nombre_tours = input("Nombre de tours (par défaut 4, ou 'q' pour quitter) : ").strip()
             if nombre_tours.lower() == "q":
                 return None
             if nombre_tours == "":
@@ -15,8 +16,7 @@ class TournamentCreation:
                 break
             print("Veuillez entrer un nombre valide.")
 
-        description = input("Description du tournoi (optionnel,"
-                            " ou 'q' pour quitter) : ").strip()
+        description = input("Description du tournoi (optionnel, ou 'q' pour quitter) : ").strip()
         if description.lower() == "q":
             return None
 
@@ -25,17 +25,16 @@ class TournamentCreation:
             "description": description
         }
 
-    # Demande et valide le résultat d'un match entre deux joueurs
     @staticmethod
     def demander_resultat_match(match):
+        """Collecte le résultat d'un match entre deux joueurs."""
         print(f"\nMatch: {match.joueur1.prenom} {match.joueur1.nom} "
               f"vs {match.joueur2.prenom} {match.joueur2.nom}")
         print(f"1. Victoire de {match.joueur1.prenom} {match.joueur1.nom}")
         print(f"2. Victoire de {match.joueur2.prenom} {match.joueur2.nom}")
         print("3. Match nul")
         while True:
-            resultat = input("Résultat (1, 2, 3, ou"
-                             " 'q' pour quitter) : ").strip()
+            resultat = input("Résultat (1, 2, 3, ou 'q' pour quitter) : ").strip()
             if resultat.lower() == "q":
                 return None
             if resultat in ["1", "2", "3"]:

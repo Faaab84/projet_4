@@ -9,9 +9,10 @@ import random
 
 
 class TournamentController:
-    """Crée un nouveau tournoi en demandant les informations nécessaires
-    et en sélectionnant les joueurs"""
+    """Gère les tournois d'échecs en coordonnant modèle et vue."""
+
     def creer_nouveau_tournoi(self):
+        """Crée un nouveau tournoi avec les informations utilisateur."""
         while True:
             nom = input("Nom du tournoi (ou 'q' pour quitter) : ").strip()
             if nom.lower() == "q":
@@ -46,8 +47,8 @@ class TournamentController:
 
         while True:
             selection = input(
-                "Numéros des joueurs à inscrire (séparés par des virgules,"
-                " ou 'q' pour quitter) : ").strip()
+                "Numéros des joueurs à inscrire (séparés par des virgules, "
+                "ou 'q' pour quitter) : ").strip()
             if selection.lower() == "q":
                 return None
             indices = []
@@ -76,15 +77,14 @@ class TournamentController:
         self.creer_tour(tournoi, round_number=0)
         tournoi.save()
 
-        print(f"\nTournoi '{tournoi.nom}' créé avec"
-              f" {len(joueurs_selectionnes)} "
+        print(f"\nTournoi '{tournoi.nom}' créé avec {len(joueurs_selectionnes)} "
               f"joueurs et {tournoi.nombre_tours} tours !")
         print(f"\n--- {tournoi.tours[0].nom} ---")
         tournoi.tours[0].afficher_matchs()
         return tournoi
 
-    """Crée un tour en générant des paires de joueurs"""
     def creer_tour(self, tournoi, round_number):
+        """Génère un nouveau tour avec des appariements uniques."""
         joueurs_pairs = self.creer_paires_joueurs(tournoi, round_number)
         if not joueurs_pairs:
             print("Plus de matchs possibles, le tournoi est terminé !")
@@ -101,8 +101,8 @@ class TournamentController:
             paire = [j1.identifiant_national, j2.identifiant_national]
             tournoi.paires_jouees.append(paire)
 
-    """Génère les paires de joueurs pour un tour,"""
     def creer_paires_joueurs(self, tournoi, round_number):
+        """Génère des paires de joueurs uniques pour un tour."""
         nombre_joueurs = len(tournoi.joueurs)
         max_paires = (nombre_joueurs * (nombre_joueurs - 1)) // 2
         if len(tournoi.paires_jouees) >= max_paires:
@@ -111,7 +111,6 @@ class TournamentController:
             sorted_players = tournoi.joueurs.copy()
             random.shuffle(sorted_players)
         else:
-
             sorted_players = sorted(
                 tournoi.joueurs,
                 key=lambda x: self.get_score_total(tournoi, x),
@@ -127,12 +126,9 @@ class TournamentController:
                 player2 = sorted_players[j]
                 if player2 in used_players:
                     continue
-                paire = [player1.identifiant_national,
-                         player2.identifiant_national]
-                paire_inversee = [player2.identifiant_national,
-                                  player1.identifiant_national]
-                if paire not in tournoi.paires_jouees and \
-                        paire_inversee not in tournoi.paires_jouees:
+                paire = [player1.identifiant_national, player2.identifiant_national]
+                paire_inversee = [player2.identifiant_national, player1.identifiant_national]
+                if paire not in tournoi.paires_jouees and paire_inversee not in tournoi.paires_jouees:
                     joueurs_pairs.append((player1, player2))
                     used_players.add(player1)
                     used_players.add(player2)
@@ -145,22 +141,19 @@ class TournamentController:
 
         return joueurs_pairs
 
-    """Calcule le score total d'un joueur dans un tournoi donné"""
     def get_score_total(self, tournoi, joueur):
+        """Calcule le score total d'un joueur dans le tournoi."""
         score = 0.0
         for tour in tournoi.tours:
             for match in tour.matchs:
-                if match.joueur1.identifiant_national ==\
-                        joueur.identifiant_national:
+                if match.joueur1.identifiant_national == joueur.identifiant_national:
                     score += match.scorej1 or 0
-                elif match.joueur2.identifiant_national ==\
-                        joueur.identifiant_national:
+                elif match.joueur2.identifiant_national == joueur.identifiant_national:
                     score += match.scorej2 or 0
         return score
 
-    """Permet de continuer un tournoi en cours en
-     sélectionnant parmi les tournois disponibles"""
     def continuer_tournoi(self):
+        """Reprend un tournoi en cours parmi ceux disponibles."""
         tournois = Tournois.from_fichier()
         en_cours = []
         for t in tournois:
@@ -176,8 +169,7 @@ class TournamentController:
             print(f"{idx}. {tournoi.nom} ({tournoi.lieu}, {tournoi.date})")
 
         while True:
-            choix = input("Numéro du tournoi à continuer "
-                          "(ou 'q' pour quitter) : ").strip()
+            choix = input("Numéro du tournoi à continuer (ou 'q' pour quitter) : ").strip()
             if choix.lower() == "q":
                 return None
             try:
@@ -192,15 +184,13 @@ class TournamentController:
             except ValueError:
                 print("Entrée invalide.")
 
-    """Gère le déroulement d'un tournoi, y compris la saisie
-     des résultats et la génération des tours"""
     def jouer_tournoi(self, tournoi):
+        """Gère la progression d'un tournoi avec saisie des résultats."""
         if tournoi.tours and tournoi.tours[-1].etat != "Terminé":
             if not self.saisir_resultats_tournoi(tournoi):
                 return False
 
-        while len(tournoi.tours) < tournoi.nombre_tours and\
-                tournoi.etat == "En cours":
+        while len(tournoi.tours) < tournoi.nombre_tours and tournoi.etat == "En cours":
             self.creer_tour(tournoi, round_number=len(tournoi.tours))
             if tournoi.etat == "Terminé":
                 break
@@ -215,8 +205,8 @@ class TournamentController:
         Rapport.afficher_classement_et_resultats(tournoi)
         return True
 
-    """Saisit les résultats des matchs pour le tour actuel d'un tournoi"""
     def saisir_resultats_tournoi(self, tournoi):
+        """Enregistre les résultats des matchs pour le tour actuel."""
         for tour in tournoi.tours:
             if tour.etat == "Terminé":
                 continue

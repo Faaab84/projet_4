@@ -3,10 +3,11 @@ from models.player import Joueur
 
 
 class Player_create:
-    """ Demander les infos pour creer le joueur et
-    on verifie que l'id n'existe pas"""
+    """Gère la création d'un joueur avec validation des informations."""
+
     @staticmethod
     def demander_infos_joueur():
+        """Collecte et valide les informations pour créer un joueur."""
         print("\n=== Création d'un nouveau joueur ===")
 
         while True:
@@ -28,8 +29,7 @@ class Player_create:
             break
 
         while True:
-            date = input("Date de naissance (DD-MM-YYYY,"
-                         " ou 'q' pour quitter) : ").strip()
+            date = input("Date de naissance (DD-MM-YYYY, ou 'q' pour quitter) : ").strip()
             if date.lower() == 'q':
                 return None
             try:
@@ -39,18 +39,14 @@ class Player_create:
                 print("Format invalide ! Exemple : 21-05-1994")
 
         while True:
-            identifiant = input("Identifiant national (2 lettres +"
-                                " 5 chiffres, ou 'q' pour quitter) :"
-                                " ").upper().strip()
+            identifiant = input("Identifiant national (2 lettres + 5 chiffres, ou 'q' pour quitter) : ").upper().strip()
             if identifiant.lower() == 'q':
                 return None
-            if not (len(identifiant) == 7 and identifiant[:2].isalpha()
-                    and identifiant[2:].isdigit()):
+            if not (len(identifiant) == 7 and identifiant[:2].isalpha() and identifiant[2:].isdigit()):
                 print("Format invalide ! Exemple : AB12345")
                 continue
             if Joueur.id_existe(identifiant):
-                print(f"Erreur : L'ID {identifiant} existe déjà."
-                      f" Veuillez en saisir un autre.")
+                print(f"Erreur : L'ID {identifiant} existe déjà. Veuillez en saisir un autre.")
                 continue
             break
 

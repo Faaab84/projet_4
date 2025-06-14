@@ -2,9 +2,11 @@ from models.tournament import Tournois
 
 
 class Rapport:
-    # Affiche la liste des tournois terminés et retourne cette liste
+    """Affiche les informations sur les tournois terminés et leurs résultats."""
+
     @staticmethod
     def afficher_tournois_termines():
+        """Affiche la liste des tournois terminés."""
         tournois = Tournois.from_fichier()
         termines = []
         for t in tournois:
@@ -18,9 +20,9 @@ class Rapport:
             print(f"{idx}. {tournoi.nom} ({tournoi.lieu}, {tournoi.date})")
         return termines
 
-    # Affiche le classement des joueurs et les résultats
     @staticmethod
     def afficher_classement_et_resultats(tournoi):
+        """Affiche le classement des joueurs et les résultats des matchs."""
         joueurs_scores = []
         for joueur in tournoi.joueurs:
             score = joueur.score or 0
@@ -29,8 +31,7 @@ class Rapport:
         for i in range(len(joueurs_scores)):
             for j in range(i + 1, len(joueurs_scores)):
                 if joueurs_scores[i][1] < joueurs_scores[j][1]:
-                    joueurs_scores[i], joueurs_scores[j] = joueurs_scores[j], \
-                                                           joueurs_scores[i]
+                    joueurs_scores[i], joueurs_scores[j] = joueurs_scores[j], joueurs_scores[i]
 
         print(f"\n=== Classement du tournoi '{tournoi.nom}' ===")
         for idx, (joueur, score) in enumerate(joueurs_scores, 1):

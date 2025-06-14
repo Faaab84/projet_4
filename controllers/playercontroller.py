@@ -29,6 +29,8 @@ class JoueurController:
         if not joueurs:
             print("\nAucun joueur enregistré")
             return
+        joueurs.sort(key=lambda joueur: joueur.nom.lower())
         print("\n=== Liste des joueurs ===\n")
         for joueur in joueurs:
             print(joueur)
+
